@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     public Rigidbody2D player;
     public float speed;
+    public Canvas gameOver;
 
     private float movement;
     private int jumpCounter = 0;
@@ -13,7 +14,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameOver.enabled = false;
     }
 
     // Update is called once per frame
@@ -46,6 +47,7 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.tag == ("Covid"))
         {
+            gameOver.enabled = true;
             Time.timeScale = 0;
         }
     }
