@@ -1,20 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     public Rigidbody2D player;
     public float speed;
-    public Canvas gameOver;
+    public Text score;
 
+    private static int points = 0;
     private float movement;
     private int jumpCounter = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        gameOver.enabled = false;
+
     }
 
     // Update is called once per frame
@@ -47,8 +50,15 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.tag == ("Covid"))
         {
-            gameOver.enabled = true;
-            Time.timeScale = 0;
+            SceneManager.LoadScene(2);
         }
+
+        if (collision.gameObject.tag == ("Vaccine"))
+        {
+            points++;
+            score.text = points.ToString();
+            Destroy(collision.gameObject);
+        }
+
     }
 }

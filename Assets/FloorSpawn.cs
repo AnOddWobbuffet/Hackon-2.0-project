@@ -10,7 +10,7 @@ public class FloorSpawn : MonoBehaviour
     private float y = -5;
     private static float x;
     private static float platformX;
-    private static float destroyTimer = 11;
+    private static float destroyTimer = 20;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +39,6 @@ public class FloorSpawn : MonoBehaviour
         int number = Random.Range(0, obstacles.Length);
         GameObject obstacle = Instantiate(obstacles[number], new Vector3(platformX, obstacles[number].transform.position.y, 0), transform.rotation);
         Destroy(obstacle, destroyTimer);
-        destroyTimer += 0.1f;
+        destroyTimer += 0.3f;
     }
 }
