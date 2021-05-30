@@ -10,14 +10,14 @@ public class Player : MonoBehaviour
     public float speed;
     public Text score;
 
-    private static int points = 0;
+    private static int points;
     private float movement;
     private int jumpCounter = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        points = 0;
     }
 
     // Update is called once per frame
